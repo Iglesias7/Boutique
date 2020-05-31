@@ -1,0 +1,81 @@
+.title {
+    text-align: left;
+    margin-left: 10px;
+    font-weight: bold;
+}
+.card_title * {
+    font-size: 13px;
+    display: inline-flex;
+}
+.tag_info {
+    font-size: 13px;
+    
+}
+
+.filter_btn_toggle * {
+    display: inline-flex;
+}
+.toggle {
+    float: right;
+    padding-top: 5px;
+}
+
+.popular {
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    position: inherit;
+}
+
+.Name {
+    background-color: darksalmon;
+    color: white;
+    font-weight: bolder;
+    position: inherit;
+}
+
+.New {
+    background-color: darkturquoise;
+    color: white;
+    font-weight: bolder;
+    position: inherit;
+}
+.tag-container {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+}
+
+.tag-container * {
+    margin: 2px;
+}
+
+.add_tag {
+    margin-top: 30px;
+}
+
+.add_btn {
+    background-color: orange;
+    color: white;
+}
+
+.nav-link {
+    
+    border-width: 0.5px;
+    background-color: lightcyan;
+    border-radius: 4px;
+}
+
+.card-content {
+    padding-top: 5px;
+    font-size: 13px;
+}
+
+.nav-link:hover {
+    background-color: darkcyan;
+    color: white;
+}
+
+.tooltip-class {
+    font-size: 15px;
+}

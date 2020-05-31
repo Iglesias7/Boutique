@@ -1,0 +1,63 @@
+<form id="editPostForm" class="form" [formGroup]="editPostForm" novalidate>
+    <h1 class="header">{{(!isNew ? 'Edit existing' : 'Add a new') + ' post'}}</h1>
+    <mat-tab-group mat-stretch-tabs dynamicHeight>
+        <mat-tab *ngIf = "isQuestion" label="Title">
+            <div class="form">
+                <mat-form-field appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input matInput placeholder="Title" [formControl]="ctlTitle" appSetFocus required>
+                    <mat-error  class="field-error" *ngIf="ctlTitle.hasError('required')">Required</mat-error>
+                    <mat-icon matSuffix>create</mat-icon>
+                  </mat-form-field>
+                <simplemde [formControl]="ctlBody" ></simplemde>
+                <div>
+                  <mat-form-field class="example-chip-list">
+                    <mat-chip-list #chipList aria-label="Tags selection">
+                      <mat-chip
+                        *ngFor="let tag of lsTag"
+                        [selectable]="selectable"
+                        [removable]="removable"
+                        (removed)="remove(tag)">
+                        {{tag}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                      </mat-chip>
+                      <input
+                        placeholder="New tag..."
+                        #tagsInput
+                        [formControl]="tagsCtrl"
+                        [matAutocomplete]="auto"
+                        [matChipInputFor]="chipList"
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                        [matChipInputAddOnBlur]="addOnBlur"
+                        (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                      <mat-option *ngFor="let tag of filteredtags | async" [value]="tag.name">
+                        {{tag}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab  *ngIf = "!isQuestion"  label="Body">
+            <simplemde [formControl]="ctlBody" ></simplemde>
+        </mat-tab>
+    </mat-tab-group>
+    
+    <div class="footer">
+        <button type="submit" mat-button 
+                form="editPostForm"
+                *ngIf="isQuestion"
+                [disabled]="editPostForm.pristine || editPostForm.invalid || editPostForm.pending"
+                (click)="update()">{{!isNew ? 'Update' : 'Add'}}</button>
+
+        <button type="submit" mat-button 
+                form="editPostForm"
+                *ngIf="!isQuestion"
+                [disabled]="ctlBody.pristine || ctlBody.invalid || ctlBody.pending"
+                (click)="update()">{{!isNew ? 'Update' : 'Add'}}</button>
+
+        <button type="reset" mat-button (click)="cancel()">Cancel</button>
+    </div>
+</form>

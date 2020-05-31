@@ -1,0 +1,30 @@
+.form  {
+    margin-top: 15px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: auto;
+    grid-row-gap: 30px;
+    margin: 3px;
+}
+
+.form mat-form-field{
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.header{
+    text-align: center;
+    color: orange;
+}
+
+.col-md-4 {
+    margin-bottom: 100px;
+}
+
+.bg-btn{
+    text-align: center;
+}

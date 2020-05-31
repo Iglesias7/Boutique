@@ -1,0 +1,90 @@
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+header{
+  background-color: rgba(207, 205, 187, 0.7); 
+
+}
+
+.nav-text{
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+.text-pseudo{
+  color: darkgreen;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bolder;
+}
+
+.text-acceuil{
+  color: rgb(54, 15, 15);
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.bg-color{
+  background-color: white;
+}
+
+.bg-border{
+  border-top: 7px solid orange;
+   width: 100%;
+}
+
+.ng-margin{
+  margin-right: 10px;
+}
+
+.ng-font{
+  font-weight: bolder;
+}
+
+.nav-link * {
+  vertical-align: middle;
+}
+
+.bt-menu:hover{
+  color: orange;
+  border-right: 5px solid orange;
+}
+
+.bt-menu-i:hover{
+  color: darkorange;
+}
+
+.link-activee{
+  color: orange;
+  border-right: 5px solid orange;
+}
+
+.link-active{
+  color: orange;
+  font-weight: bolder;
+}
+
+.ng-pseudo{
+  color: orange;
+}
+
+.vertical-menu a {
+  display: block;
+  padding: 12px;
+  color: rgb(85, 173, 207);
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: rgb(248, 241, 174);
+}

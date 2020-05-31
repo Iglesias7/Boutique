@@ -1,0 +1,66 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <h1 class="title">Tags</h1>
+    </mat-toolbar-row>
+</mat-toolbar><br>
+<div><p class="tag_info">A tag is a keyword or label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question.</p>
+</div>
+<br>
+<div class="filter_btn_toggle">
+        <div class="row">
+                <div class="col-sm-12">
+                    <mat-form-field>
+                        <input matInput (keyup)="filterChanged($event.target.value)" [(ngModel)] = "demo" placeholder="Filter by tag name" appSetFocus>
+                    </mat-form-field>
+                </div>
+        </div>
+        <mat-button-toggle-group class="toggle" appearance="legacy" name="fontStyle" aria-label="Font Style" style=" position: inherit;">
+                <mat-button-toggle class="popular" (click)="popularfilter()">Popular</mat-button-toggle>
+                <mat-button-toggle class="Name" (click)="namefilter()">Name</mat-button-toggle>
+                <mat-button-toggle class="New" (click)="newfilter()">New</mat-button-toggle>
+        </mat-button-toggle-group>
+
+</div><br><br>
+
+<div class="tag-container">
+
+    <mat-card matSort *ngFor="let tag of dataSources.data" >
+        <mat-card-header>
+            <mat-card-title>
+                <p class="card_title">
+                    <a mat-raised-a
+                            matTooltip= {{tag.body}}
+                            matTooltipClass="tooltip-class"
+                            aria-label="Tag info"
+                            class="nav-link" [routerLink]='["/posts/"+tag.name]'>
+                            {{tag.name}}
+                    </a>                            
+                </p>
+                </mat-card-title>
+        </mat-card-header> 
+        <mat-card-content class="card-content" >
+            Tagged on <span style="color: darkmagenta">{{tag.nbXPosts}}</span> posts
+        </mat-card-content>
+        <mat-card-content class="card-content" style="color:  darkgreen">
+            Created on {{tag.timestamp | timeAgo}}
+        </mat-card-content>
+         <mat-card-actions> 
+            <button mat-icon-button>
+                <mat-icon *ngIf="currentUser && isAdmin" style="color: green" (click)="edit(tag)">edit</mat-icon>
+            </button>
+            <button mat-icon-button >
+                <mat-icon  *ngIf="currentUser && isAdmin" style="color: red" (click)="delete(tag)">delete</mat-icon>
+            </button>
+        </mat-card-actions>  
+    </mat-card>
+</div>
+<div class="row mt-3">
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = onPageChange($event)"></mat-paginator>
+</div>
+
+<div class="add_tag" *ngIf="currentUser && isAdmin">
+    <div class="col-5">
+        <button class="add_btn" mat-raised-button (click)="create()">Add a New Tag</button>
+    </div>
+</div>
+

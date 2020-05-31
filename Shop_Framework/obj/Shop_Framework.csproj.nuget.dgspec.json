@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\chendjou\\Documents\\shop-dev\\shop-dev\\Shop_Framework\\Shop_Framework.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\chendjou\\Documents\\shop-dev\\shop-dev\\Shop_Framework\\Shop_Framework.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\chendjou\\Documents\\shop-dev\\shop-dev\\Shop_Framework\\Shop_Framework.csproj",
+        "projectName": "Shop_Framework",
+        "projectPath": "C:\\Users\\chendjou\\Documents\\shop-dev\\shop-dev\\Shop_Framework\\Shop_Framework.csproj",
+        "packagesPath": "C:\\Users\\chendjou\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chendjou\\Documents\\shop-dev\\shop-dev\\Shop_Framework\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\chendjou\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

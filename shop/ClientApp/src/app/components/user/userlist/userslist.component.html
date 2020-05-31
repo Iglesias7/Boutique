@@ -1,0 +1,40 @@
+<h1>Liste d'utilisateurs</h1>
+<div class="row">
+    <div class="col-sm-12">
+        <mat-form-field>
+            <input matInput (keyup)="filterChanged($event.target.value)" placeholder="Filter" appSetFocus>
+        </mat-form-field>
+    </div>
+</div>
+<div class="card-container">
+    <mat-card class="example-card"  matsort *ngFor="let user of dataSources.data" >
+        <mat-card-header>
+            <div mat-card-avatar [style.background-size]="'cover'"
+            [style.background-image]="'url(' + (user.picturePath || 'uploads/unknown-user.png') + ')'"></div>
+          <mat-card-title>{{user.pseudo}}</mat-card-title>
+          <mat-card-subtitle>{{user.firstName || '&nbsp;' }}</mat-card-subtitle>
+          <mat-card-subtitle>{{user.lastName || '&nbsp;' }}</mat-card-subtitle>
+          <mat-card-subtitle>{{user.birthDate | date:'dd/MM/yyyy'}}</mat-card-subtitle>
+          <mat-card-subtitle>{{user.email || '&nbsp;' }}</mat-card-subtitle>
+          <mat-card-subtitle>Réputation: {{user.reputation || '0' }}</mat-card-subtitle>
+        </mat-card-header>
+       
+        <mat-card-actions class="card-buttons">
+            <button mat-icon-button >
+                <mat-icon *ngIf="currentUser && currentUser.roleAsString == 'Admin'" style="color: green" (click)="edit(user)">edit</mat-icon>
+            </button>
+            <button mat-icon-button >
+                <mat-icon *ngIf="currentUser && currentUser.roleAsString == 'Admin' && user.pseudo != currentUser.pseudo" style="color: red" (click)="delete(user)">delete</mat-icon>
+            </button>
+        </mat-card-actions>
+      </mat-card>
+</div>
+<div class="row mt-3">
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = onPageChange($event)"></mat-paginator>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12">
+        <button *ngIf="currentUser && currentUser.roleAsString == 'Admin'" mat-raised-button (click)="create()">New User</button>
+    </div>
+</div>
